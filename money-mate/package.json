@@ -1,0 +1,26 @@
+{
+  "name": "money-mate",
+  "version": "1.0.0",
+  "description": "A personal finance management application.",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "jest",
+    "lint": "eslint .",
+    "format": "prettier --write ."
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "dotenv": "^10.0.0",
+    "mongoose": "^5.10.9",
+    "jsonwebtoken": "^8.5.1",
+    "bcryptjs": "^2.4.3"
+  },
+  "devDependencies": {
+    "jest": "^26.6.0",
+    "eslint": "^7.14.0",
+    "prettier": "^2.2.1"
+  },
+  "author": "Your Name",
+  "license": "MIT"
+}
