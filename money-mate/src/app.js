@@ -1,28 +1,27 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const cors = require('cors');
+const dotenv = require('dotenv');
 
-// Import routes
+//  переменные окружения
+dotenv.config();
+
+const app = express();
+
+app.use(cors());
+app.use(express.json());
+
+//  роуты
 const authRoutes = require('./routes/auth.routes');
 const dashboardRoutes = require('./routes/dashboard.routes');
 const transactionsRoutes = require('./routes/transactions.routes');
 
-const app = express();
+app.use('/auth', authRoutes);
+app.use('/dashboard', dashboardRoutes);
+app.use('/transactions', transactionsRoutes);
 
-// Middleware
-app.use(cors());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-
-// Routes
-app.use('/api/auth', authRoutes);
-app.use('/api/dashboard', dashboardRoutes);
-app.use('/api/transactions', transactionsRoutes);
-
-// Error handling middleware
-app.use((err, req, res, next) => {
-    console.error(err.stack);
-    res.status(500).send('Something broke!');
+//  проверка
+app.get('/', (req, res) => {
+  res.send('MoneyMate API is running');
 });
 
-module.exports = app;
+module.exports = { app };

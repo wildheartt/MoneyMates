@@ -1,3 +1,5 @@
+//will fix it after main course
+
 # Money Mate
 
 Money Mate is a personal finance management application that helps users track their income, expenses, and transactions. This project is built using Node.js and Express, providing a robust backend for handling user authentication, transaction management, and dashboard statistics.
@@ -35,16 +37,19 @@ money-mate
 ## Installation
 
 1. Clone the repository:
+
    ```
    git clone https://github.com/yourusername/money-mate.git
    ```
 
 2. Navigate to the project directory:
+
    ```
    cd money-mate
    ```
 
 3. Install the dependencies:
+
    ```
    npm install
    ```
@@ -54,6 +59,7 @@ money-mate
 ## Usage
 
 To start the application, run:
+
 ```
 npm start
 ```
@@ -63,6 +69,7 @@ The server will start on the specified port (default is 3000). You can access th
 ## Testing
 
 To run the tests, use:
+
 ```
 npm test
 ```
