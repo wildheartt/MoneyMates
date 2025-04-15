@@ -19,6 +19,7 @@ app.use('/auth', authRoutes);
 app.use('/dashboard', dashboardRoutes);
 app.use('/transactions', transactionsRoutes);
 
+app.use(express.static(path.join(__dirname, '..', 'public')));
 //  проверка
 app.get('/', (req, res) => {
   res.send('MoneyMate API is running');
