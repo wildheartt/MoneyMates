@@ -1,5 +1,5 @@
 import request from 'supertest';
-import app from '../app'; // Assuming app.js exports the Express app
+import app from '../app'; 
 
 describe('Authentication Tests', () => {
     describe('POST /auth/login', () => {

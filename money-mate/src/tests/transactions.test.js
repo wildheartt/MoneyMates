@@ -1,10 +1,10 @@
 import request from 'supertest';
-import app from '../app'; // Assuming app.js exports the Express app
-import { Transaction } from '../models/transaction.model'; // Adjust the import based on your model structure
+import app from '../app'; 
+import { Transaction } from '../models/transaction.model'; 
 
 describe('Transaction API', () => {
   beforeEach(async () => {
-    await Transaction.deleteMany({}); // Clear the database before each test
+    await Transaction.deleteMany({}); 
   });
 
   it('should create a new transaction', async () => {
@@ -15,7 +15,7 @@ describe('Transaction API', () => {
     };
 
     const response = await request(app)
-      .post('/api/transactions') // Adjust the route based on your routes setup
+      .post('/api/transactions') 
       .send(transactionData)
       .expect(201);
 
@@ -33,7 +33,7 @@ describe('Transaction API', () => {
     await Transaction.insertMany(transactionData);
 
     const response = await request(app)
-      .get('/api/transactions') // Adjust the route based on your routes setup
+      .get('/api/transactions') 
       .expect(200);
 
     expect(response.body.length).toBe(2);
@@ -49,7 +49,7 @@ describe('Transaction API', () => {
     });
 
     const response = await request(app)
-      .get(`/api/transactions/${transaction._id}`) // Adjust the route based on your routes setup
+      .get(`/api/transactions/${transaction._id}`)
       .expect(200);
 
     expect(response.body).toHaveProperty('_id', transaction._id.toString());
@@ -57,12 +57,12 @@ describe('Transaction API', () => {
   });
 
   it('should return 404 for non-existing transaction', async () => {
-    const nonExistingId = '60d5ec49f1b2c8b1f8e4e1e1'; // Example non-existing ID
+    const nonExistingId = '60d5ec49f1b2c8b1f8e4e1e1'; 
 
     const response = await request(app)
-      .get(`/api/transactions/${nonExistingId}`) // Adjust the route based on your routes setup
+      .get(`/api/transactions/${nonExistingId}`)
       .expect(404);
 
-    expect(response.body.message).toBe('Transaction not found'); // Adjust based on your error handling
+    expect(response.body.message).toBe('Transaction not found');
   });
 });

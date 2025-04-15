@@ -24,17 +24,14 @@ const userSchema = new mongoose.Schema({
     }
 });
 
-// Method to find a user by username
 userSchema.statics.findByUsername = function(username) {
     return this.findOne({ username });
 };
 
-// Method to find a user by email
 userSchema.statics.findByEmail = function(email) {
     return this.findOne({ email });
 };
 
-// Method to create a new user
 userSchema.statics.createUser = function(userData) {
     const user = new this(userData);
     return user.save();

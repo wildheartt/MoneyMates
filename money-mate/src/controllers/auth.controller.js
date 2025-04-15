@@ -1,6 +1,5 @@
 const User = require('../models/user.model');
 
-// Register a new user
 exports.register = async (req, res) => {
     const { username, password, email } = req.body;
     try {
@@ -12,7 +11,6 @@ exports.register = async (req, res) => {
     }
 };
 
-// Login a user
 exports.login = async (req, res) => {
     const { username, password } = req.body;
     try {
@@ -20,7 +18,6 @@ exports.login = async (req, res) => {
         if (!user || !(await user.comparePassword(password))) {
             return res.status(401).json({ message: 'Invalid credentials' });
         }
-        // Generate token logic here (e.g., JWT)
         res.status(200).json({ message: 'Login successful', token: 'generated_token' });
     } catch (error) {
         res.status(500).json({ message: 'Error logging in', error });
